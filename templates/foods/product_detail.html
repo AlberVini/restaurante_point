@@ -1,0 +1,44 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}{{ product.nome }}{% endblock title %}
+
+{% block content %}
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-lg-3 mb-3 mb-lg-0">
+            {% if product.imagem %}
+                <img class="container-fluid" src="{% static '' %}{{ product.imagem }}" alt="">
+            {% else %}
+                <img class="card-img-top" src="{% static 'images/no_image.jpg' %}" alt="">
+            {% endif %}
+        </div>
+        <div class="col-lg-9">
+            <h1 class="font-weight-bold">{{ product.nome }}</h1>
+            <h2>{{ product.restaurante.nome }}</h2>
+            <h3>R$ {{ product.preco }}</h3>
+            <p>{{ product.descricao }}</p>
+            <form class="form-group" action="{% url 'cart:add' product.id %}" method="post">
+                <p class="form-inline">
+                    {{ form.quantity.label_tag }}
+                    {% render_field form.quantity class+="form-control ml-sm-3" %}
+                    {{ form.override }}
+                </p>
+                {% csrf_token %}
+                <input class="btn btn-success" type="submit" value="Adicionar ao Carrinho">
+            </form>
+            <!--<p>
+                Voltar para o catálogo de
+                <a class="text-decoration-none" href="{{ product.category.get_absolute_url }}">
+                    {{ product.category.nome }}
+                </a>
+            </p>-->
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

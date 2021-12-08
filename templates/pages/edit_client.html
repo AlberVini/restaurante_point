@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Editar Conta{% endblock title %}
+
+{% block content %}
+<div class="container my-3">
+    <div class="row">
+        {% include 'options_client.html' %}
+        <div class="col-lg-9">
+            <h1>Editando Conta</h1>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="submit" class="btn btn-success" value="Editar">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

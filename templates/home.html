@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .container-fluid {
+        background-color: black;
+    }
+
+    ul li {
+        display: inline;
+    }
+    .img {
+        width: 49%;
+    }
+    .img2 {
+        width: 49%;
+    }
+</style>
+<div class="container-fluid">
+<div class="container">  
+<ul>
+    <li>
+        <img src="{% static 'img/carp1.jpg' %}" class="img" alt="cardapio1">
+        <img src="{% static 'img/carp2.jpg' %}" class="img2" alt="cardapio2">
+    </li>    
+</ul>
+</div>
+</div>
+{% endblock %}

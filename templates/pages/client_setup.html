@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Minha Conta{% endblock %}
+
+{% block content %}
+<div class="container my-3">
+    <div class="row">
+        {% include 'options_client.html' %}
+        <div class="col-lg-9">
+            Nome do Usuário
+            <p>{{ user }}</p>
+            Endereço
+            <p>{{ user.client.endereco }}</p>
+            Data de Nascimento
+            <p>{{ user.client.data_nascimento }}</p>
+            {% if user.client.celular %}
+            Número do celular
+            <p>{{ user.client.celular }}</p>
+            {% endif %}  
+        </div>
+    </div>
+</div>
+{% endblock %}

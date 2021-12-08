@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} Cadastro como {{ user_type }}{% endblock %}
+
+{% block content %}
+    <div class="container my-3">
+    <h2 class="font-weight-bold">Cadastro como {{ user_type }}</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de produtos{% endblock %}
+
+{% block content %}
+<div class="container my-3">
+    <div class="row">
+        {% include 'options_restaurant.html' %}
+        <div class="col-lg-9">
+            {% if products %}
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            {% if 'warning' in message.tags %}
+                                <li {% if message.tags %}class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <div>
+                    <ul class="list-group">
+                        {% for product in products %}
+                        <li class="list-group-item">{{ product.nome }}
+                        <div align="right">
+                            <a href="{% url 'pages:product_edit' product.id %}" class="btn btn-primary">Editar</a>
+                            <a href="{% url 'pages:product_delete' product.id %}" class="btn btn-danger">Deletar</a>
+                        </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% else %}
+                <h3>Você não tem produtos registrados no site</h3>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

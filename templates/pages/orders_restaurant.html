@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %} Pedidos {% endblock %}
+
+{% block content %}
+<div class="container my-3">
+    <div class="row">
+        {% include 'options_restaurant.html' %}
+        <div class="col-lg-7">
+            <!--{% for value in items %}
+                <ul class="list-group list-group-flush"></ul>    
+                <li class="list-group-item bg-light">
+                <h4>Pedido {{ value.order_id }}</h4>
+                {{ value.quantity }} X {{ value.product }}
+                <span class="float-right">R$ {{ value.price }}</span>
+                    <li class="font-weight-bold list-group-item bg-light">Nome no pedido
+                        <span class="float-right">{{ value.order.name }}</span>
+                    </li>
+                </li>
+                    <br>
+            {% endfor %}-->
+            {% if orders %}
+                <h2>Histórico de Pedidos</h2>
+                {% for order in orders %}
+                    <ul class="list-group list-group-flush"></ul>    
+                    <li class="list-group-item bg-light">
+                    <h4>{{ order }}</h4>
+                    {% for item in order.items.all %}
+                        {{ item.quantity }} X {{ item.product }}
+                        <span class="float-right">R$ {{ item.price }}</span>
+                        <br>
+                    {% endfor %}
+                        <li class="font-weight-bold list-group-item bg-light">Nome no pedido
+                            <span class="float-right">{{ order.name }}</span>
+                        </li>
+                    </li>
+                        <br>
+                {% endfor %}
+            {% else %}
+                <h3>O restaurante não tem histórico de pedidos</h3>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

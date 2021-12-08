@@ -1,0 +1,98 @@
+.row {
+    margin: 0;
+}
+
+.container {
+    padding: 70px 0;
+}
+
+p, li {
+    color: #444;
+    font-size: 14px;
+}
+
+/* Barra de navegação */
+header, .navbar {
+    background-color: #353D41;
+}
+
+#nav-container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#logo {
+    background-color: #353D41;
+    width: 75px;
+}
+
+.navbar-brand {
+    padding: 0;
+    color: #FFF;
+}
+
+.navbar-brand:hover {
+    color: #FFF;
+}
+
+#navbar-links a {
+    color: #FFF;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding: 1rem .8rem;
+}
+
+.nav-item.active {
+    border-bottom: 3px solid #FFF;
+}
+
+/* old style */
+
+.active {
+    background-color: #266fa0 !important;
+    border-color: #266fa0 !important;
+}
+
+.btn-client {
+    color: #fff;
+    background-color: #91afb6;
+    border-color: #91afb6;
+}
+
+.btn-client:hover,
+.btn-client:active {
+  color: #fff;
+  background-color: #608993;
+  border-color: #608993;
+}
+
+.btn-restaurant {
+  color: #fff;
+  background-color: #8980a5;
+  border-color: #8980a5;
+}
+
+.btn-restaurant:hover,
+.btn-restaurant:active {
+  color: #fff;
+  background-color: #66598B;
+  border-color: #66598B;
+}
+
+/* body */
+
+.container-fluid {
+    padding: 0;
+  }
+
+
+/*  Messages */
+
+ul.messages {
+  padding: 0;
+}
+
+ul.messages li {
+  list-style: none;
+}

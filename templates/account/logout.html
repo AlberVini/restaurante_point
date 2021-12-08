@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} Sair {% endblock %}
+
+{% block content %}
+    <div class="container my-3">
+        <h2 class="font-weight-bold">Sair</h1>
+        <p>Tem certeza que deseja sair?</p>
+        <form method="POST">
+            {% csrf_token %}
+            <button class="btn btn-danger" type="submit">Sair</button>
+            <a href="{% url 'pages:home' %}" class="btn btn-success">Voltar a Página Principal</a>
+        </form>
+    </div>
+{% endblock %}

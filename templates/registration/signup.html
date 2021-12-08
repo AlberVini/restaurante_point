@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %} Escolha Conta {% endblock %}
+
+{% block content %}
+  <div class="container my-3">
+  <h2 class="font-weight-bold">Cadastro</h1>
+    <p class="lead">Escolha o tipo de conta</p>
+    <a href="{% url 'users:client_signup' %}" class="btn btn-client btn-lg" role="button">Cliente</a>
+    <a href="{% url 'users:restaurant_signup' %}" class="btn btn-restaurant btn-lg" role="button">Restaurante</a>
+  </div>
+{% endblock %}

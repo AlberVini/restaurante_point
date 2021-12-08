@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Área do Restaurante {% endblock %}
+
+{% block content %}
+<div class="container my-3">
+    <div class="row">
+        {% include 'options_restaurant.html' %}
+        <div class="col-lg-9">
+            {% if restaurant.nome %}
+                Nome do Restaurante
+                <p>{{ restaurant.nome }}</p>
+            {% endif %}
+            {% if restaurant.descricao %}
+                Descrição
+                <p>{{ restaurant.descricao }}</p>
+            {% endif %}
+            Endereço
+            <p>{{ restaurant.endereco }}</p>
+            CNPJ
+            <p>{{ restaurant.cnpj }}</p>
+            {% if restaurant.imagem %}
+                <img class="container-fluid" src="{% static '' %}{{restaurant.imagem}}" alt="img-restaurante">
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

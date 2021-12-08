@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load mathfilters %}
+{% block title %}Minha Conta{% endblock %}
+
+{% block content %}
+<div class="container my-3">
+    <div class="row">
+        {% include 'options_client.html' %}
+        <div class="col-lg-7">
+            <h2>Pedidos realizados</h2>            
+            {% for info in object_list %}                
+                <ul class="list-group list-group-flush"></ul>    
+                <li class="list-group-item bg-light">  
+                <h4>{{ info }}</h4>          
+                {% for values in info.items.all %}
+                    {{ values.quantity }} x {{ values.product }} 
+                    <span class="float-right">R$ {{ values.price|mul:values.quantity }}</span>
+                    <br>
+                {% endfor %}
+                </li>
+                {% for key, price in tot_price.items %}
+                    {% if key ==  info.id %}
+                        <li class="font-weight-bold list-group-item bg-light">Total
+                            <span class="float-right">R$ {{ price }}</span>
+                        </li>
+                        <br>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
